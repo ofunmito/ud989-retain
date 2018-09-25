@@ -25,13 +25,14 @@ $(function() {
             // to add a New Note and then render the new note
             // the view isn't directly modifying the model
             model.add({
-                content: noteStr
+                content: noteStr,
+                date: Date()
             });
             view.render();
         },
 
         getNotes: function() {
-            return model.getAllNotes();
+            return model.getAllNotes().reverse();
         },
 
         init: function() {
@@ -65,6 +66,9 @@ $(function() {
                 // append new notes to the 'notes' unordered list
                 htmlStr += '<li class="note">' +
                     note.content +
+                    '</li>' +
+                    '<li class="note-date">' +
+                    note.date.toString() +
                     '</li>';
             });
             this.noteList.html(htmlStr);
