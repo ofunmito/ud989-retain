@@ -65,10 +65,10 @@ $(function() {
             octopus.getNotes().forEach(function(note) {
                 // append new notes to the 'notes' unordered list
                 htmlStr += '<li class="note">' +
-                    note.content +
-                    '</li>' +
-                    '<li class="note-date">' +
+                    '<span class="note-date">' +
                     note.date.toString() +
+                    '</span> ' +
+                    note.content +
                     '</li>';
             });
             this.noteList.html(htmlStr);
